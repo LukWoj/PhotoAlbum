@@ -4,11 +4,11 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="icon" th:href="@{/favicon.png}" />
+    <link rel="icon" th:href="@{/favicon.png}"/>
 
-    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" th:href="@{/app.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" th:href="@{/app.css}"/>
 
     <title>giflib | Home</title>
 </head>
@@ -46,14 +46,17 @@
 <div class="gifs container">
     <div class="row">
         <div th:each="gif : ${picturesList}" class="col S12 l4">
-            <div class="row col s12">
-                <img th:src="@{'/gifs/' + ${gif.name}}" alt="gif"/>
+            <div class="col s12">
+                <a th:href="@{'/gif/' + ${gif.fileName}}">
+               <!-- <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>-->
+                <img th:src="@{'/gifs/' + ${gif.fileName} + '.gif'}" alt="gif"/>
+                </a>
             </div>
         </div>
     </div>
 </div>
 
-<!--                        -->
+
 <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
 <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
 <script th:src="@{/app.js}"></script>
