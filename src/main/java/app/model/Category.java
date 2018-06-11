@@ -1,4 +1,3 @@
-/*
 package app.model;
 
 public class Category {
@@ -26,4 +25,3 @@ public class Category {
         this.name = name;
     }
 }
-*/

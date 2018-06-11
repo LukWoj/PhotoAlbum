@@ -18,8 +18,7 @@ public class Pictures {
     }
 
     public Pictures(String fileName, boolean favorite, int categoryId) {
-        this.fileName = fileName;
-        this.favorite = favorite;
+        this(fileName,favorite);
         this.categoryId = categoryId;
     }
 

@@ -11,11 +11,9 @@ public interface PicturesRepository {
 
     List<Pictures> listFavouritesPictures();
 
-    /*List<Pictures> findByCategoryId(int categoryId);
-
-    List<Pictures> findAllByNameIgnoreCase(String name);
-*/
     Optional<Pictures> findByName(String fileName);
 
+    List<Pictures> findAllByNameIgnoreCase(String name);
 
+    List<Pictures> findByCategoryId(int categoryId);
 }
