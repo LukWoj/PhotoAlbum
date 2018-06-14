@@ -8,6 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 //ctrl+alt+o - remove unused imports
 
 @Controller
@@ -37,11 +40,19 @@ public class PicturesController {
 
     @GetMapping("/gif/{name}/favorite")
     public String isFavouriteGifChange(@PathVariable String name, ModelMap modelMap) {
-        fileRepo.findByName(name).orElse(new Pictures("android-explosion", true)).changeFavorite();
-        modelMap.addAttribute("gif", fileRepo.findByName(name).orElse(new Pictures("android-explosion", true)));
+        fileRepo.findByName(name).orElse(new Pictures("android-explosion", true))
+                .changeFavorite();
+        modelMap.addAttribute("gif", fileRepo.findByName(name)
+                .orElse(new Pictures("android-explosion", true)));
         return "gif-details";
     }
 
+    @GetMapping("/search")
+    public String searchPicture(@RequestParam String photo, ModelMap modelMap) {
+        List<Pictures> picturesList = fileRepo.searchAllByNameIgnoreCase(photo);
+        modelMap.addAttribute("search", fileRepo.searchAllByNameIgnoreCase(photo));
+        return "home";
+        }
+    }
 
-}
 

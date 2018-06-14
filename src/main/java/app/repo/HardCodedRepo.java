@@ -24,6 +24,7 @@ public class HardCodedRepo implements PicturesRepository {
         picturesList.add(new Pictures("7", false,2));
         picturesList.add(new Pictures("8", false,2));
         picturesList.add(new Pictures("9", false,2));
+        picturesList.add(new Pictures("10", false,2));
         picturesList.add(new Pictures("11", false,2));
         picturesList.add(new Pictures("12", false,2));
         picturesList.add(new Pictures("13", false,2));
@@ -37,8 +38,8 @@ public class HardCodedRepo implements PicturesRepository {
         picturesList.add(new Pictures("21", false,2));
         picturesList.add(new Pictures("22", false,2));
         picturesList.add(new Pictures("23", false,2));
-        picturesList.add(new Pictures("24", false,3));
-        picturesList.add(new Pictures("25", false,2));
+        picturesList.add(new Pictures("24", false,2));
+        picturesList.add(new Pictures("25", false,3));
         picturesList.add(new Pictures("26", false,2));
         picturesList.add(new Pictures("27", false,2));
         picturesList.add(new Pictures("28", false,2));
@@ -67,13 +68,18 @@ public class HardCodedRepo implements PicturesRepository {
 
 
     @Override
-    public List<Pictures> findAllByNameIgnoreCase(String name) {
-        return picturesList.stream().filter(p -> p.getFileName().toLowerCase().contains(name.toLowerCase())).collect(Collectors.toList());
+    public List<Pictures> searchAllByNameIgnoreCase(String name) {
+        return picturesList.stream().filter(p -> p.getFileName().toLowerCase()
+                .contains(name.toLowerCase())).collect(Collectors.toList());
     }
+
     @Override
     public List<Pictures> findByCategoryId(int categoryId) {
-        return picturesList.stream().filter(p -> p.getCategoryId()==categoryId).collect(Collectors.toList());
+        return picturesList.stream().filter(p -> p.getCategoryId() == categoryId)
+                .collect(Collectors.toList());
     }
+
+
 
 
 

@@ -24,8 +24,8 @@ public class CategoryRepository implements CategoryRepo {
         return categories;
     }
 
-@Override
-    public Category findByCategoryId(int categoryID){
+    @Override
+    public Category findByCategoryId(int categoryID) {
         return categories.stream().filter(p -> p.getId() == categoryID).collect(Collectors.toList()).get(0);
     }
 }
