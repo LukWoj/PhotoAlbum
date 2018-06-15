@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" th:href="@{/app.css}"/>
 
-    <title>giflib | Home</title>
+    <title>photoLib | Home</title>
 </head>
 <body>
 <div class="navbar-fixed">
     <nav>
         <div class="container">
-            <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
+            <a th:href="@{/}" class="brand-logo">photo<span>.</span>lib</a>
             <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li class="active"><a th:href="@{/}">Explore</a></li>
@@ -31,25 +31,29 @@
         </div>
     </nav>
 </div>
+
 <div class="search-bar container">
     <div class="row">
         <div class="col s12">
-            <form action="/search" method="get">
+            <form action="/gifs/search" method="get">
                 <div class="input-field">
-                    <input name="q" type="search" placeholder="Wyszukiwanie..." required="required" autocomplete="off"/>
-                    <i class="material-icons">search</i>
+                    <input name="q" type="search" placeholder="Search all photos..." required="required"
+                           autocomplete="off"/>
+                    <input class="material-icons" type="submit" value="search"/>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+
 <div class="gifs container">
     <div class="row">
         <div th:each="gif : ${picturesList}" class="col S12 l4">
-            <div class="col s12">
+            <div class="row col s12">
                 <a th:href="@{'/gif/' + ${gif.fileName}}">
-               <!-- <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>-->
-                <img th:src="@{'/gifs/' + ${gif.fileName} + '.gif'}" alt="gif"/>
+                    <!-- <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'"></a>-->
+                    <img th:src="@{'/gifs/' + ${gif.fileName} + '.gif'}" alt="gif"/>
                 </a>
             </div>
         </div>

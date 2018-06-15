@@ -28,4 +28,12 @@ public class CategoryRepository implements CategoryRepo {
     public Category findByCategoryId(int categoryID) {
         return categories.stream().filter(p -> p.getId() == categoryID).collect(Collectors.toList()).get(0);
     }
+
+    @Override
+    public List<Category> findCategoriesByNameIgnoreCase(String name) {
+        return categories.stream()
+                .filter(category -> category.getName()
+                        .toLowerCase().contains(name.toLowerCase()))
+                .collect(Collectors.toList());
+    }
 }

@@ -22,11 +22,9 @@ public class Pictures {
         this.categoryId = categoryId;
     }
 
-    public Pictures(String fileName, String username, boolean favorite, int categoryId) {
-        this.fileName = fileName;
-        this.username = username;
-        this.favorite = favorite;
-        this.categoryId = categoryId;
+    public Pictures(String fileName , boolean favorite, int categoryId,String username) {
+        this(fileName, favorite, categoryId);
+        setUsername(username);
     }
 
     public String getFileName() {

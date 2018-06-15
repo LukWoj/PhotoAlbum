@@ -47,12 +47,16 @@ public class PicturesController {
         return "gif-details";
     }
 
-    @GetMapping("/search")
-    public String searchPicture(@RequestParam String photo, ModelMap modelMap) {
-        List<Pictures> picturesList = fileRepo.searchAllByNameIgnoreCase(photo);
-        modelMap.addAttribute("search", fileRepo.searchAllByNameIgnoreCase(photo));
-        return "home";
+    @GetMapping("/gifs/search")
+    public String searchGif(@RequestParam String q, ModelMap modelMap) {
+        List<Pictures> gifList = fileRepo.findAllByNameIgnoreCase(q);
+        if (gifList.isEmpty()) {
+            modelMap.addAttribute("picturesList", fileRepo.listAllPictures());
+        } else {
+            modelMap.addAttribute("picturesList", gifList);
         }
+        return "home";
     }
+}
 
 

@@ -8,6 +8,8 @@ public interface CategoryRepo {
 
     List<Category> listAllCategories();
     Category findByCategoryId(int categoryID);
+    List<Category> findCategoriesByNameIgnoreCase(String name);
+
 }
 
 

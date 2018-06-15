@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" th:href="@{/app.css}"/>
 
-    <title th:text="'giflib | ' + ${gif.fileName}">Photos</title>
+    <title th:text="'photoLib | ' + ${gif.fileName}">Photos</title>
 </head>
 <body>
 <div class="navbar-fixed">
@@ -58,7 +58,7 @@
                     <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar"/>
                 </div>
                 <div class="col s9">
-
+                    <p th:text="${gif.username}"/>
                 </div>
             </div>
         </div>

@@ -13,7 +13,7 @@ public interface PicturesRepository {
 
     Optional<Pictures> findByName(String fileName);
 
-    List<Pictures> searchAllByNameIgnoreCase(String name);
+    List<Pictures> findAllByNameIgnoreCase(String name);
 
     List<Pictures> findByCategoryId(int categoryId);
 }
