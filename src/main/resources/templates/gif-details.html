@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" th:href="@{/app.css}"/>
 
-    <title th:text="'photos.lukwoj.com | ' + ${gif.fileName}">Photos</title>
+    <title th:text="'https://photoslukaszwoj.herokuapp.com/gif/ | ' + ${gif.fileName}">Photos</title>
 </head>
 <body>
 <div class="navbar-fixed">
     <nav>
         <div class="container">
-            <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
+            <a th:href="@{/}" class="brand-logo">photo<span>.</span>lib</a>
             <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li class="active"><a th:href="@{/}">Explore</a></li>
@@ -36,7 +36,7 @@
         <div class="col s12">
             <form action="#" method="get">
                 <div class="input-field">
-                    <input name="q" type="search" placeholder="Search all gifs..." required="required"
+                    <input name="q" type="search" placeholder="Search all photos..." required="required"
                            autocomplete="off"/>
                     <i class="material-icons">search</i>
                 </div>
@@ -65,7 +65,7 @@
         <div class="col s12 l6">
             <div class="share">
                 <a class="btn right" href="#">Copy</a>
-                <span th:text="'http://photo-gif/' + ${gif.fileName}">URL</span>
+                <span th:text="'https://photoslukaszwoj.herokuapp.com/gif/' + ${gif.fileName}">URL</span>
             </div>
         </div>
     </div>
